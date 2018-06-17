@@ -25,13 +25,13 @@ class TestNpoWatchlistInfo(object):
 
         task = execute_task('test')
 
-        entry = task.find_entry(url='https://www.npo.nl/als-de-dijken-breken/05-11-2016/VPWON_1243425')  # s01e01
-        assert entry['npo_url'] == 'https://www.npo.nl/als-de-dijken-breken/VPWON_1261083'
-        assert entry['npo_name'] == 'Als de dijken breken'
-        assert entry['npo_description'] == 'Serie over een hedendaagse watersnoodramp in Nederland en delen van Vlaanderen.'
-        assert entry['npo_runtime'] == '46'
+        entry = task.find_entry(url='https://www.npostart.nl/the-fourth-estate/29-05-2018/VPWON_1280492')  # s01e01
+        assert entry['npo_url'] == 'https://www.npostart.nl/the-fourth-estate/VPWON_1280496'
+        assert entry['npo_name'] == 'The Fourth Estate'
+        assert entry['npo_description'] == 'Filmmaker Liz Garbus volgt het reilen en zeilen binnen de The New York Times. De ongekende toegang tot de redactie van het Amerikaanse dagblad levert bijzondere interviews op met de redacteuren en verslaggevers die het nieuws rond president Trump brengen. Garbus laat vanuit het perspectief van correspondenten van het Witte Huis, onderzoeksjournalisten en redacteuren bij The New York Times de uitdagingen, overwinningen en valkuilen zien van de verslaggeving over president Trump, die de vrije pers de oorlog heeft verklaard.'
+        assert entry['npo_runtime'] == '87'
 
-        assert task.find_entry(url='https://www.npo.nl/als-de-dijken-breken-official-trailer-2016/26-10-2016/POMS_EO_5718640') is None  # a trailer for the series, that should not be listed
+        assert task.find_entry(url='https://www.npostart.nl/als-de-dijken-breken-official-trailer-2016/26-10-2016/POMS_EO_5718640') is None  # a trailer, that should not be listed
 
 
 @pytest.mark.online
@@ -50,8 +50,8 @@ class TestNpoWatchlistLanguageTheTVDBLookup(object):
 
         task = execute_task('test')
 
-        entry = task.find_entry(url='https://www.npo.nl/als-de-dijken-breken/05-11-2016/VPWON_1243425')  # s01e01
+        entry = task.find_entry(url='https://www.npostart.nl/zaak-van-je-leven/04-07-2017/POW_03548461')  # s01e01
         assert entry['npo_language'] == 'nl'
         assert entry['language'] == 'nl'
-        assert entry['tvdb_id'] == 312980
+        assert entry['tvdb_id'] == 313833
         assert entry['tvdb_language'] == 'nl'
